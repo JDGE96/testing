@@ -86,11 +86,60 @@ const spotifyTracks = [
     artist: "Avatar",
     url: "https://open.spotify.com/track/62JAxMtxSgFMUlBgjmi23H"
   },
+  
+/*
+
+  {
+    title: "",
+    artist: "",
+    url: ""
+  },
+
+*/
+
+  {
+    title: "One",
+    artist: "Metallica",
+    url: "https://open.spotify.com/track/0LAcM6I7ijW4VVW0aytl1t?si=d17a4c6362fb4a03"
+  },
+
+  {
+    title: "A Little Piece of Heaven",
+    artist: "Avenged Sevenfold",
+    url: "https://open.spotify.com/track/1BLfQ6dPXmuDrFmbdfW7Jl?si=39149737142f4e2a"
+  },
+
+  {
+    title: "You're Gonna Go Far, Kid",
+    artist: "The Offspring",
+    url: "https://open.spotify.com/track/6TfBA04WJ3X1d1wXhaCFVT?si=d8d2814d480c4625"
+  },
+
+    {
+    title: "Killer Queen",
+    artist: "Queen",
+    url: "https://open.spotify.com/track/4mKlzy0qaK1c2Qw5e2VqpF?si=a98f3c4b7ba14afd"
+  },
+
+  {
+    title: "Hollywood Undead",
+    artist: "Everywhere I Go",
+    url: "https://open.spotify.com/track/1czaCgWLWgqp0eRIZ0BcXh?si=fe93842621214b17"
+  },
+
+
+  {
+    title: "Mary On A Cross",
+    artist: "Ghost",
+    url: "https://open.spotify.com/track/2HZLXBOnaSRhXStMLrq9fD?si=88c619fd6b4d473c"
+  },
+  
   {
     title: "Freeze Your Brain",
     artist: "Kevin Murphy, Laurence O'Keefe, Barrett Wilbert Weed, Ryan McCartan",
     url: "https://open.spotify.com/track/1IKnbVLnSCwOPFAurjs0vc"
   },
+  
   {
     title: "For Whom The Bell Tolls (Remastered)",
     artist: "Metallica",
