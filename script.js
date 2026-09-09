@@ -586,6 +586,17 @@ document
   );
 
 
+/*
+   Spotify button: pick a random song and open it in Spotify.
+*/
+document
+  .getElementById("spotifyRandom")
+  .addEventListener(
+    "click",
+    pickSpotifySong
+  );
+
+
 /* ============================================================
    11. FIRST LOAD
    ============================================================
