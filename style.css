@@ -351,13 +351,13 @@ footer {
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #cac3c3;
+  background: linear-gradient(135deg, #132368, #6522a8);
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
 }
 
 .sentence-button:hover {
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 16px rgba(128, 149, 241, 0.4);
 }
 
 .sentence-result {
