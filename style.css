@@ -352,8 +352,8 @@ footer {
   border-radius: 999px;
   cursor: pointer;
   color: #ffffff;
-  background: linear-gradient(135deg, #132368, #6522a8);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #425fdd, #8a40d3);
+  box-shadow: 0 6px 16px rgba(115, 136, 228, 0.3);
 }
 
 .sentence-button:hover {
