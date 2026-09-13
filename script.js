@@ -533,11 +533,23 @@ const messages = [
    ============================================================ */
 
 const randomSentences = [
-  "You're doing great, even on the days it doesn't feel like it.",
-  "This is your reminder to drink some water.",
-  "Small steps still count as moving forward.",
-  "Somebody out there is proud of you.",
-  "Take a breath. You've got this.",
+  "How I met your mother",
+  "Shorsey",
+  "Cobra Kai",
+  "Foxes",
+  "Markiplier",
+  "FNAF",
+  "Busch Gardens",
+  "Wranglers (That one trip to Williamsburg)",
+  "Challengers",
+  "BRZs",
+  "Saying the word MAJOR",
+  "Playing with Raven",
+  "The Mortal Instruments",
+  "The Hobbit",
+  "Free Guy",
+  "Ready Player One",
+  "Deadpool",
 
   // Add your own sentences here:
   // "Another sentence goes here.",
