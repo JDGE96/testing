@@ -369,6 +369,18 @@ footer {
   min-height: 1.2em;
 }
 
+.journal-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: #667eea;
+  text-decoration: none;
+}
+
+.journal-link:hover {
+  text-decoration: underline;
+}
+
 /* ------------------------------------------------------------
    ANIMATIONS
    ------------------------------------------------------------ */
