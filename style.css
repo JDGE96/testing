@@ -371,7 +371,7 @@ footer {
 
 .note-link {
   display: inline-block;
-  margin-top: 14px;
+  margin-top: 10px;
   font-size: 0.58rem;
   color: rgba(18, 53, 36, 0.75);
   text-decoration: none;
@@ -383,7 +383,7 @@ footer {
 
 .journal-link {
   display: inline-block;
-  margin-top: 14px;
+  margin-top: 5px;
   font-size: 0.58rem;
   color: rgba(18, 53, 36, 0.75);
   text-decoration: none;
