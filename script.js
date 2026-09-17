@@ -166,6 +166,15 @@ const spotifyTracks = [
     url: "https://open.spotify.com/track/2UXnpMyr1l7OixcCtT6dJK?si=75ef198bdd04454b"
   },
 
+
+/* SWEENEY TODD */
+
+  {
+    title: "Pretty Women",
+    artist: "Sweeny Todd Soundtrack",
+    url: "https://open.spotify.com/track/4X4ZHPOgp5DLh3tYZD5YYU?si=06b5cd424f764903"
+  },
+
 /* BADFLOWER */
 
 
@@ -506,6 +515,22 @@ const messages = [
   },
 
   {
+    category: "COULD BE WORSE",
+    emoji: "🛩️",
+    text: "Keep your head up girl",
+    subtext: "At least TSA didnt take your claws away!"
+
+  },
+
+  {
+    category: "DONT DO THIS",
+    emoji: "🚂",
+    text: "Do NOT say you like trains out loud",
+    subtext: "One could just come out and hit you!"
+
+  },
+
+  {
     category: "A LAUGH",
     emoji: "🚗",
     text: "Keep today happy!",
@@ -513,6 +538,14 @@ const messages = [
 
   }, 
   
+  {
+    category: "SING ALONG",
+    emoji: "🎵",
+    text: "LA LA LA",
+    subtext: "Whatever. Its Doesnt Matter. Oh Well"
+
+  }, 
+
   {
     category: "YOU CAN DO IT",
     emoji: "🏒",
@@ -524,46 +557,12 @@ const messages = [
 
 
 /* ============================================================
-   3b. RANDOM SENTENCES (small footer button)
-   ============================================================
-
-   A simple list of one-line sentences. Add as many as you
-   want — just keep each one in quotes, with a comma after
-   every sentence EXCEPT the last one.
-   ============================================================ */
-
-const randomSentences = [
-  "How I met your mother",
-  "Shorsey",
-  "Cobra Kai",
-  "Foxes",
-  "Markiplier",
-  "FNAF",
-  "Busch Gardens",
-  "Wranglers (That one trip to Williamsburg)",
-  "Challengers",
-  "BRZs",
-  "Saying the word MAJOR",
-  "Playing with Raven",
-  "The Mortal Instruments",
-  "The Hobbit",
-  "Free Guy",
-  "Ready Player One",
-  "Deadpool",
-
-  // Add your own sentences here:
-  // "Another sentence goes here.",
-];
-
-
-/* ============================================================
    3. KEEP TRACK OF THE LAST MESSAGE / PHOTO
    ============================================================ */
 
 let lastMessageIndex = -1;
 let lastPhotoIndex = -1;
 let lastSpotifyIndex = -1;
-let lastSentenceIndex = -1;
 
 
 /* ============================================================
@@ -720,43 +719,6 @@ function pickSpotifySong() {
 
 
 /* ============================================================
-   8b. RANDOM SENTENCE (footer button)
-   ============================================================ */
-
-function getRandomSentence() {
-
-  let index;
-
-  do {
-    index = randomIndex(randomSentences);
-  }
-
-  while (
-    randomSentences.length > 1 &&
-    index === lastSentenceIndex
-  );
-
-  lastSentenceIndex = index;
-
-  return randomSentences[index];
-}
-
-
-function showRandomSentence() {
-
-  if (randomSentences.length === 0) {
-    return;
-  }
-
-  const sentence =
-    getRandomSentence();
-
-  document.getElementById("randomSentenceResult").textContent =
-    sentence;
-}
-
-
-/* ============================================================
    9. DISPLAY A NEW MESSAGE
    ============================================================ */
 
@@ -810,7 +772,7 @@ function showMessage() {
   card.classList.add("pop");
 }
 
- /*============================================================
+/*============================================================
    NOTE BOX — sends a message to your Discord channel
    ============================================================
 
@@ -824,8 +786,20 @@ function showMessage() {
 const discordWebhookUrl =
   "https://discord.com/api/webhooks/1549257705129119775/dkYM5V_fp3r__4LEZEGNT16artlKExHK73J28znxm-KcEMWk7SnastTin1CXI9Tzin6Z";
 
+
+/*
+   Discord's normal (non-boosted) webhook upload limit is
+   around 10MB per file. We check against that on this end
+   so people get a friendly message instead of a silent
+   failure if their video is too big.
+*/
 const maxAttachmentBytes = 10 * 1024 * 1024;
 
+
+/*
+   Show the picked file's name under the attach link, so
+   people know it actually got selected.
+*/
 document
   .getElementById("discordnoteFileInput")
   .addEventListener("change", () => {
@@ -850,6 +824,7 @@ document
     fileNameDisplay.textContent = "Attached: " + file.name;
   });
 
+
 function sendNoteToDiscord() {
 
   const input = document.getElementById("discordnoteInput");
@@ -859,13 +834,14 @@ function sendNoteToDiscord() {
   const fileNameDisplay = document.getElementById("discordnoteFileName");
 
   const noteText = input.value.trim();
+  const file = fileInput.files[0];
 
-  if (noteText.length === 0) {
-    status.textContent = "Type something first 🙂";
+  if (noteText.length === 0 && !file) {
+    status.textContent = "Please type something or attach a file";
     return;
   }
 
-button.disabled = true;
+  button.disabled = true;
   status.textContent = "Sending...";
 
   let fetchOptions;
@@ -909,17 +885,27 @@ button.disabled = true;
     .then((response) => {
 
       if (response.ok) {
-        status.textContent = "Sent 💌";
+        status.textContent = "Sent";
         input.value = "";
         fileInput.value = "";
         fileNameDisplay.textContent = "";
       }
 
       else {
+        /*
+           Log the actual reason to the console (F12 → Console)
+           so it's easy to see WHY a send failed instead of just
+           knowing that it did.
+        */
+        response.text().then((text) => {
+          console.error("Discord webhook error:", response.status, text);
+        });
+
         status.textContent = "Something went wrong. Try again?";
       }
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error("Discord webhook fetch failed:", error);
       status.textContent = "Something went wrong. Try again?";
     })
     .finally(() => {
@@ -963,17 +949,6 @@ document
   .addEventListener(
     "click",
     pickSpotifySong
-  );
-
-/*
-   Random sentence button (in the footer): show a random
-   one-line sentence from the randomSentences list.
-*/
-document
-  .getElementById("randomSentenceBtn")
-  .addEventListener(
-    "click",
-    showRandomSentence
   );
 
 /* ============================================================

@@ -317,7 +317,7 @@ button:focus-visible {
 .special-message {
   margin-top: 20px;
 
-  font-size: 0.98rem;
+  font-size: 0.68rem;
 
   color: rgba(234, 235, 236, 1);
 
@@ -326,58 +326,15 @@ button:focus-visible {
   border-radius: 10px;
 }
 
-/* ------------------------------------------------------------
-   FOOTER
-   ------------------------------------------------------------ */
-
-footer {
-  margin-top: 18px;
-
-  color: #777c98;
-
-  font-size: 0.75rem;
-
-  text-align: center;
-  
-  background: rgba(220, 220, 220, 0.95);
-  padding: 12px 20px;
-  border-radius: 12px;
-}
-
-.sentence-button {
-  margin-top: 8px;
-  padding: 6px 12px;
-  font-size: 0.5rem;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  color: #ffffff;
-  background: linear-gradient(135deg, #425fdd, #8a40d3);
-  box-shadow: 0 6px 16px rgba(115, 136, 228, 0.3);
-}
-
-.sentence-button:hover {
-  box-shadow: 0 6px 16px rgba(128, 149, 241, 0.4);
-}
-
-.sentence-result {
-  margin: 10px auto 0;
-  max-width: 560px;
-  color: #6478dd;
-  font-size: 0.6rem;
-  line-height: 1.5;
-  min-height: 1.2em;
-}
-
 .discordnote-box {
   width: min(420px, 100%);
   margin: 22px auto 0;
-  padding: 18px 20px;
+  padding: 14px 16px;
   text-align: center;
 
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.75);
-  border-radius: 18px;
+  border-radius: 15px;
 }
 
 .discordnote-label {
@@ -389,7 +346,7 @@ footer {
 .discordnote-input {
   width: 100%;
   resize: vertical;
-  padding: 10px 12px;
+  padding: 8px 12px;
   font-family: inherit;
   font-size: 0.9rem;
   color: #20243a;
@@ -402,8 +359,6 @@ footer {
   outline: none;
   border-color: #667eea;
 }
-
-/* Attachment */
 
 .discordnote-file-label {
   display: block;
@@ -425,16 +380,15 @@ footer {
   word-break: break-all;
 }
 
-
 .discordnote-send-button {
   margin-top: 10px;
   padding: 8px 20px;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   border: none;
   border-radius: 999px;
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #667eea, #4ba26f);
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
 }
 
@@ -455,28 +409,24 @@ footer {
   min-height: 1.1em;
 }
 
-.note-link {
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 0.58rem;
-  color: rgba(18, 53, 36, 0.75);
-  text-decoration: none;
-}
 
-.note-link:hover {
-  text-decoration: underline;
-}
 
-.journal-link {
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 0.58rem;
-  color: rgba(18, 53, 36, 0.75);
-  text-decoration: none;
-}
+/* ------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------ */
 
-.journal-link:hover {
-  text-decoration: underline;
+footer {
+  margin-top: 18px;
+
+  color: #777c98;
+
+  font-size: 0.75rem;
+
+  text-align: center;
+  
+  background: rgba(220, 220, 220, 0.95);
+  padding: 12px 20px;
+  border-radius: 12px;
 }
 
 /* ------------------------------------------------------------
