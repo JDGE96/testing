@@ -824,12 +824,39 @@ function showMessage() {
 const discordWebhookUrl =
   "https://discord.com/api/webhooks/1549257705129119775/dkYM5V_fp3r__4LEZEGNT16artlKExHK73J28znxm-KcEMWk7SnastTin1CXI9Tzin6Z";
 
+const maxAttachmentBytes = 10 * 1024 * 1024;
+
+document
+  .getElementById("discordnoteFileInput")
+  .addEventListener("change", () => {
+
+    const fileInput = document.getElementById("discordnoteFileInput");
+    const fileNameDisplay = document.getElementById("discordnoteFileName");
+
+    const file = fileInput.files[0];
+
+    if (!file) {
+      fileNameDisplay.textContent = "";
+      return;
+    }
+
+    if (file.size > maxAttachmentBytes) {
+      fileNameDisplay.textContent =
+        "That file's too big (limit ~10MB). Pick a smaller one.";
+      fileInput.value = "";
+      return;
+    }
+
+    fileNameDisplay.textContent = "Attached: " + file.name;
+  });
 
 function sendNoteToDiscord() {
 
   const input = document.getElementById("discordnoteInput");
   const status = document.getElementById("discordnoteStatus");
   const button = document.getElementById("discordnoteSendBtn");
+  const fileInput = document.getElementById("discordnoteFileInput");
+  const fileNameDisplay = document.getElementById("discordnoteFileName");
 
   const noteText = input.value.trim();
 
