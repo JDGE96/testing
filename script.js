@@ -547,6 +547,15 @@ const messages = [
   }, 
 
   {
+    category: "LEGENDARY",
+    emoji: "🎵",
+    text: "WE ARE INTERNATIONAL BUSINESSMEN",
+    subtext: "WE DO NOT WANT TO MISS OUR INTERNATIONAL BUSINESS MEETING"
+
+  }, 
+
+
+  {
     category: "YOU CAN DO IT",
     emoji: "🏒",
     text: "Just know it is always possible, you can do it",
