@@ -865,23 +865,54 @@ function sendNoteToDiscord() {
     return;
   }
 
-  button.disabled = true;
+button.disabled = true;
   status.textContent = "Sending...";
 
-  fetch(discordWebhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      content: noteText,
-    }),
-  })
+  let fetchOptions;
+
+  if (file) {
+
+    /*
+       When sending a file, Discord webhooks want a
+       multipart form instead of plain JSON. "payload_json"
+       carries the text, "files[0]" carries the attachment.
+    */
+    const formData = new FormData();
+
+    formData.append(
+      "payload_json",
+      JSON.stringify({ content: noteText })
+    );
+
+    formData.append("files[0]", file, file.name);
+
+    fetchOptions = {
+      method: "POST",
+      body: formData,
+    };
+  }
+
+  else {
+
+    fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: noteText,
+      }),
+    };
+  }
+
+  fetch(discordWebhookUrl, fetchOptions)
     .then((response) => {
 
       if (response.ok) {
         status.textContent = "Sent 💌";
         input.value = "";
+        fileInput.value = "";
+        fileNameDisplay.textContent = "";
       }
 
       else {
